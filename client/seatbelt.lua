@@ -47,7 +47,7 @@ local function toggleSeatbelt()
     end
 
     exports.cobalt_core:Notify(
-        state.buckled and 'Seatbelt fastened' or 'Seatbelt removed',
+        locale(state.buckled and 'seatbelt.fastened' or 'seatbelt.removed'),
         state.buckled and 'success' or 'error',
         3000
     )
@@ -86,7 +86,7 @@ local function holdExit()
     DisableControlAction(27, CONTROL_EXIT, true)
 
     if IsDisabledControlJustPressed(0, CONTROL_EXIT) then
-        exports.cobalt_core:Notify('Remove your seatbelt first', 'error', 3000)
+        exports.cobalt_core:Notify(locale('seatbelt.remove_first'), 'error', 3000)
     end
 end
 

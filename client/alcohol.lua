@@ -456,7 +456,7 @@ local function passOut()
     if not hold(blackout.black) or not wakeUp(lying) then return false end
 
     startHangover()
-    exports.cobalt_core:Notify(blackout.notify, 'info', 6000)
+    exports.cobalt_core:Notify(locale('alcohol.wake_up'), 'info', 6000)
     return true
 end
 

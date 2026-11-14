@@ -49,7 +49,6 @@ return {
         timecycle = 'Drunk', -- timecycle that blurs and doubles the view, faded in on the way out and out on the way back
         shake = 'DRUNK_SHAKE', -- native camera shake used throughout
         sound = 'heartbeat', -- cobalt_sound file played as vision goes and again on waking
-        notify = 'Your head is pounding. You have no idea how you got here.', -- notification on waking
 
         fadeOut = {
             duration = 5000, -- milliseconds the vision swims and blurs before the screen goes black

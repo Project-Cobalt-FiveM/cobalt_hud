@@ -99,8 +99,17 @@ local function hide()
     minimap.refresh()
 end
 
+---@return string?
+local function settingsKey()
+    local citizenid <const> = state.playerData.citizenid
+    return citizenid and ('settings:%s'):format(citizenid)
+end
+
 local function loadSettings()
-    nui.send('loadSettings', lib.callback.await('cobalt_hud:server:getSettings', false))
+    local key <const> = settingsKey()
+    local saved <const> = key and GetResourceKvpString(key)
+
+    nui.send('loadSettings', saved and json.decode(saved))
 end
 
 for _, key in ipairs({ 'invOpen', 'hideHud', 'isDead' }) do
@@ -172,7 +181,12 @@ end)
 
 RegisterNUICallback('saveSettings', function(settings, cb)
     cb('ok')
-    TriggerServerEvent('cobalt_hud:server:saveSettings', settings)
+
+    local key <const> = settingsKey()
+
+    if not key or type(settings) ~= 'table' then return end
+
+    SetResourceKvp(key, json.encode(settings))
 end)
 
 ---@param resource string

@@ -1,6 +1,5 @@
 local Cobalt <const> = exports.cobalt_core:GetCoreObject()
 
-require 'server.settings'
 require 'server.stress'
 require 'server.alcohol'
 

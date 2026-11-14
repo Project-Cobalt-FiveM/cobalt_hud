@@ -9,20 +9,17 @@ description 'Project Cobalt HUD: status circles, speedometer and a per-character
 version '1.0.0'
 
 dependencies {
-    'cobalt_mysql',
     'ox_lib',
     'cobalt_core',
 }
 
 shared_script '@ox_lib/init.lua'
 
+ox_libs { 'locale' }
+
 client_script 'client/main.lua'
 
-server_scripts {
-    '@cobalt_mysql/lib/MySQL.lua',
-    '@cobalt_core/server/migrationgate.lua',
-    'server/main.lua',
-}
+server_script 'server/main.lua'
 
 ui_page '_nui/build/index.html'
 
@@ -30,6 +27,7 @@ files {
     'config.lua',
     'config/*.lua',
     'client/*.lua',
+    'locales/*.json',
     '_nui/build/index.html',
     '_nui/build/**/*',
 }

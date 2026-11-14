@@ -1,0 +1,10 @@
+{
+    "seatbelt": {
+        "fastened": "Seatbelt fastened",
+        "removed": "Seatbelt removed",
+        "remove_first": "Remove your seatbelt first"
+    },
+    "alcohol": {
+        "wake_up": "Your head is pounding. You have no idea how you got here."
+    }
+}
